@@ -15,22 +15,23 @@ PREFIX="app/assets"
 BACKGROUND="xc:white"
 #BACKGROUND="xc:black"
 
-if[! -d $PREFIX]
-	then
-		echo "The directory structure to create the files in does not exist. Maybe this is not the root of an Appclerator project"
-		exit 1;
-	fi
+if [ ! -d "$PREFIX" ]; then
+	echo "The directory structure to create the files in does not exist. Maybe this is not the root of an Appclerator project"
+	exit 1
+fi
 
 # iOS splash screens
+echo "Making the iOS splash screen images"
 convert -size 2048x1496 $BACKGROUND $PREFIX/iphone/Default-Landscape@2x.png
 convert -size 1024x748 $BACKGROUND $PREFIX/iphone/Default-Landscape.png
-convert -size 15362008x1004 $BACKGROUND $PREFIX/iphone/Default-Portrait@2x.png
+convert -size 1536x2008 $BACKGROUND $PREFIX/iphone/Default-Portrait@2x.png
 convert -size 768x1004 $BACKGROUND $PREFIX/iphone/Default-Portrait.png
 convert -size 640x1136 $BACKGROUND $PREFIX/iphone/Default-568h@2x.png
 convert -size 640x960 $BACKGROUND $PREFIX/iphone/Default@2x.png
 convert -size 320x480 $BACKGROUND $PREFIX/iphone/Default.png
 
 # iOS app icons
+echo "Making the iOS icon images"
 convert -size 512x512 $BACKGROUND $PREFIX/iphone/appicon@512.png
 convert -size 144x144 $BACKGROUND $PREFIX/iphone/appicon-144.png
 convert -size 114x114 $BACKGROUND $PREFIX/iphone/appicon@2x.png
@@ -40,8 +41,10 @@ convert -size 50x50 $BACKGROUND $PREFIX/iphone/appicon-Small-50.png
 convert -size 29x29 $BACKGROUND $PREFIX/iphone/appicon-Small.png
 
 # Android
+echo "Making the Android icon images"
 convert -size 128x128 $BACKGROUND $PREFIX/android/appicon.png
 
+echo "Making the Android splash screen images"
 convert -size 320x480 $BACKGROUND $PREFIX/android/default.png
 convert -size 800x480 $BACKGROUND $PREFIX/android/images/res-long-land-hdpi/default.png
 convert -size 400x240 $BACKGROUND $PREFIX/android/images/res-long-land-ldpi/default.png
@@ -55,6 +58,7 @@ convert -size 240x320 $BACKGROUND $PREFIX/android/images/res-notlong-port-ldpi/d
 convert -size 320x480 $BACKGROUND $PREFIX/android/images/res-notlong-port-mdpi/default.png
 
 # mobile web
+echo "Making the mobileweb images"
 convert -size 128x128 $BACKGROUND $PREFIX/mobileweb/appicon.png
 convert -size 748x1024 $BACKGROUND $PREFIX/mobileweb/apple_startup_images/Default-Landscape.jpg
 convert -size 748x1024 $BACKGROUND $PREFIX/mobileweb/apple_startup_images/Default-Landscape.png
