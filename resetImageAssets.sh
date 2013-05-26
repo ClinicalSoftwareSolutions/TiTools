@@ -15,6 +15,12 @@ PREFIX="app/assets"
 BACKGROUND="xc:white"
 #BACKGROUND="xc:black"
 
+if[! -d $PREFIX]
+	then
+		echo "The directory structure to create the files in does not exist. Maybe this is not the root of an Appclerator project"
+		exit 1;
+	fi
+
 # iOS splash screens
 convert -size 2048x1496 $BACKGROUND $PREFIX/iphone/Default-Landscape@2x.png
 convert -size 1024x748 $BACKGROUND $PREFIX/iphone/Default-Landscape.png
