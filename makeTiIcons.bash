@@ -7,14 +7,20 @@ PREFIX="app/assets"
 # For non-alloy apps
 #PREFIX="Resources"
 
+usage ()
+{
+  echo $0 [source icon 512x512]
+}
 
 if [ ! -f "$1" ]; then
 	echo "A source image has not been specified"
+	usage
 	exit 2
 fi
 
 if [ ! -d "$PREFIX" ]; then
 	echo "The directory structure to create the files in does not exist. Maybe this is not the root of an Appclerator project"
+	usage
 	exit 1
 fi
 
