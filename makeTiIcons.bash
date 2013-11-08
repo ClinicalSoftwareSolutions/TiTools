@@ -48,7 +48,7 @@ convert "$1" -resize 152x152 $PREFIX/iphone/appicon-76@2x.png
 
 # Android
 echo "Making the Android icon images"
-convert "$1" -resize 128x128 $PREFIX/android/appicon.png
+convert -size 128x128 xc:none -fill white -draw 'roundRectangle 0,0 128,128 10,10' "$1"[128x128] -compose SrcIn -composite $PREFIX/android/appicon.png
 
 # mobile web
 echo "Making the mobileweb images"
